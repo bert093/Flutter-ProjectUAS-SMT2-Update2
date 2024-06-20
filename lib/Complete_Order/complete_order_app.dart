@@ -53,17 +53,14 @@ class CompleteOrderApp extends StatelessWidget {
                               left: 15,
                               top: 21,
                               child: Transform(
-                                transform: Matrix4.identity()
-                                  ..translate(0.0, 0.0)
-                                  ..rotateZ(0.82),
+                                transform: Matrix4.identity()..translate(0.0, 0.0)..rotateZ(0.82),
                                 child: Container(
                                   width: 19.10,
                                   decoration: const ShapeDecoration(
                                     shape: RoundedRectangleBorder(
                                       side: BorderSide(
                                         width: 4,
-                                        strokeAlign:
-                                            BorderSide.strokeAlignCenter,
+                                        strokeAlign: BorderSide.strokeAlignCenter,
                                         color: Color(0xFF7B8081),
                                       ),
                                     ),
