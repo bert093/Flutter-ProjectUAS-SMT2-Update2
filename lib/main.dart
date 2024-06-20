@@ -8,7 +8,6 @@ import 'package:prj_uas_d1_24/payment/payment.dart';
 import 'package:prj_uas_d1_24/signup_file/SignUp.dart';
 import 'package:prj_uas_d1_24/firebase_options.dart';
 import 'package:prj_uas_d1_24/home_file/Home.dart';
-// test update gunakan github desktop
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized(); // inisialisasi binding widget {Memastikan bahwa binding Flutter telah diinisialisasi. Ini diperlukan sebelum memanggil metode asinkron initializeApp dari Firebase.}

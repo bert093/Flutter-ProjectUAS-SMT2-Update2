@@ -81,8 +81,7 @@ class HomeApp extends StatelessWidget {
                         height: 56,
                         child: const Stack(
                           children: [
-                            Positioned(
-                              // LETAK TEKS HELLO
+                            Positioned( // LETAK TEKS HELLO
                               left: 69,
                               top: 8,
                               child: SizedBox(
@@ -100,8 +99,7 @@ class HomeApp extends StatelessWidget {
                                 ),
                               ),
                             ),
-                            Positioned(
-                              // LETAK TEKS SYAHRILL KP
+                            Positioned( // LETAK TEKS SYAHRILL KP
                               left: 69,
                               top: 27,
                               child: SizedBox(
@@ -161,15 +159,13 @@ class HomeApp extends StatelessWidget {
                                 ),
                               ),
                             ),
-                            const Positioned(
-                              // TextField search bar MAU CARI APA
+                            const Positioned( // TextField search bar MAU CARI APA
                               left: 81,
                               top: 18, // AWAL 32
                               child: SizedBox(
                                 width: 450, // AWAL 140
                                 height: 30, // AWAL 19
-                                child: TextField(
-                                  // TEXTFIELD SEARCH BAR
+                                child: TextField( // TEXTFIELD SEARCH BAR
                                   decoration: InputDecoration(
                                     hintText: 'Mau Cari Apa?',
                                     hintStyle: TextStyle(
@@ -271,13 +267,12 @@ class HomeApp extends StatelessWidget {
                         ),
                       ),
                     ),
-                    Positioned(
-                      // LETAK TEKS HOME
+                    Positioned( // LETAK TEKS HOME
                       left: 172,
                       top: 1910,
                       child: Container(
                         child: const Row(
-                          // teks home, wishlist, cart menjadi horizontal
+                          // teks home, wishlist, cart menjadi horizontal (tidak dibutuhkan)
                           // mainAxisSize: MainAxisSize.min,
                           // mainAxisAlignment: MainAxisAlignment.start,
                           // crossAxisAlignment: CrossAxisAlignment.start,
@@ -330,8 +325,7 @@ class HomeApp extends StatelessWidget {
                         ),
                       ),
                     ),
-                    Positioned(
-                      // Letak Lines 3 Image
+                    Positioned( // Letak Lines 3 Image
                       left: 642,
                       top: 57,
                       child: Container(
@@ -345,8 +339,7 @@ class HomeApp extends StatelessWidget {
                         ),
                       ),
                     ),
-                    const Positioned(
-                      // LETAK TEKS POCO X6 PRO 5G
+                    const Positioned( // LETAK TEKS POCO X6 PRO 5G
                       left: 108,
                       top: 1123,
                       child: SizedBox(
@@ -365,8 +358,7 @@ class HomeApp extends StatelessWidget {
                         ),
                       ),
                     ),
-                    const Positioned(
-                      // LETAK TEKS SAMSUNG GALAXY ULTRA
+                    const Positioned( // LETAK TEKS SAMSUNG GALAXY ULTRA
                       left: 420, // AWAL 440
                       top: 1123,
                       child: SizedBox(
@@ -386,8 +378,7 @@ class HomeApp extends StatelessWidget {
                         ),
                       ),
                     ),
-                    const Positioned(
-                      // LETAK TEKS ADVAN WORKPLUS
+                    const Positioned( // LETAK TEKS ADVAN WORKPLUS
                       left: 109,
                       top: 1511,
                       child: SizedBox(
@@ -406,8 +397,7 @@ class HomeApp extends StatelessWidget {
                         ),
                       ),
                     ),
-                    const Positioned(
-                      // LETAK TEKS DBE GM 500
+                    const Positioned( // LETAK TEKS DBE GM 500
                       left: 462,
                       top: 1510,
                       child: SizedBox(
@@ -426,8 +416,7 @@ class HomeApp extends StatelessWidget {
                         ),
                       ),
                     ),
-                    Positioned(
-                      // LETAK GAMBAR ADVAN WORKPLUS
+                    Positioned( // LETAK GAMBAR ADVAN WORKPLUS
                       left: 45,
                       top: 1203,
                       child: Container(
@@ -441,8 +430,7 @@ class HomeApp extends StatelessWidget {
                         ),
                       ),
                     ),
-                    Positioned(
-                      // LETAK GAMBAR SAMSUNG GALAXY S24 ULTRA
+                    Positioned( // LETAK GAMBAR SAMSUNG GALAXY S24 ULTRA
                       left: 426,
                       top: 866,
                       child: Container(
@@ -456,8 +444,7 @@ class HomeApp extends StatelessWidget {
                         ),
                       ),
                     ),
-                    Positioned(
-                      // LETAK GAMBAR POCO X6
+                    Positioned( // LETAK GAMBAR POCO X6
                       left: 101,
                       top: 870,
                       child: Container(
@@ -471,8 +458,7 @@ class HomeApp extends StatelessWidget {
                         ),
                       ),
                     ),
-                    Positioned(
-                      // LETAK GAMBAR HOME NAVBAR KARENA CHILD MENGGUNAKAN ROW MAKA ICONSNYA MENGIKUTI DARI POSITIONEDNYA
+                    Positioned( // LETAK GAMBAR HOME NAVBAR KARENA CHILD MENGGUNAKAN ROW MAKA ICONSNYA MENGIKUTI DARI POSITIONEDNYA
                       left: 170, // AWAL 175
                       top: 1847,
                       child: Row(
@@ -530,8 +516,7 @@ class HomeApp extends StatelessWidget {
                         const BoxDecoration(color: Color(0xFFC0EAFC)),
                       ),
                     ),
-                    Positioned(
-                      // LETAK GAMBAR GALAXY S24 ULTRA PALING ATAS
+                    Positioned( // LETAK GAMBAR GALAXY S24 ULTRA PALING ATAS
                       left: 269,
                       top: 289,
                       child: Container(
@@ -546,8 +531,7 @@ class HomeApp extends StatelessWidget {
                         ),
                       ),
                     ),
-                    const Positioned(
-                      // LETAK TEKS SAMSUNG GALAXY S24 ULTRA (TEKS ATAS)
+                    const Positioned( // LETAK TEKS SAMSUNG GALAXY S24 ULTRA (TEKS ATAS)
                       left: 85, // AWAL 85
                       top: 365,
                       child: SizedBox(
@@ -605,8 +589,7 @@ class HomeApp extends StatelessWidget {
                         ),
                       ),
                     ),
-                    Positioned(
-                      // AI ICONS
+                    Positioned( // LETAK AI ICONS
                       left: 207, // AWAL 199
                       top: 409,
                       child: Container(
@@ -621,8 +604,7 @@ class HomeApp extends StatelessWidget {
                         ),
                       ),
                     ),
-                    Positioned(
-                      // LETAK GAMBAR DBE GM500 (headset)
+                    Positioned( // LETAK GAMBAR DBE GM500 (headset)
                       left: 429,
                       top: 1242,
                       child: Container(
