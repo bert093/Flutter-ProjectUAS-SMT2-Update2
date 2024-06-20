@@ -1,10 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:prj_uas_d1_24/Address/add_your_address.dart';
-import 'package:prj_uas_d1_24/Complete_Order/complete_order_app.dart';
-import 'package:prj_uas_d1_24/payment/payment.dart';
-// import 'package:prj_uas_d1_24/Address/add_your_address.dart';
 import 'package:prj_uas_d1_24/signup_file/SignUp.dart';
 import 'package:prj_uas_d1_24/firebase_options.dart';
 import 'package:prj_uas_d1_24/home_file/Home.dart';
@@ -12,41 +8,44 @@ import 'package:prj_uas_d1_24/home_file/Home.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized(); // inisialisasi binding widget {Memastikan bahwa binding Flutter telah diinisialisasi. Ini diperlukan sebelum memanggil metode asinkron initializeApp dari Firebase.}
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform); // inisialisasi Firebase {Inisialisasi Firebase dengan opsi platform default}
-  runApp(const LoginAppMain()); // menjalankan aplikasi {Menjalankan aplikasi dengan widget LoginAppMain}
+  runApp(const LoginApp()); // menjalankan  aplikasi {Menjalankan aplikasi dengan widget LoginApp}
 }
 
-class LoginAppMain extends StatelessWidget {
-  const LoginAppMain({super.key});
+class LoginApp extends StatelessWidget {
+  const LoginApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false, // menonaktifkan banner debug
+      home: const LoginAppTest(), // menjalankan widget LoginAppTest
+      theme: ThemeData(
+        scaffoldBackgroundColor: Colors.black, // mengubah warna latar depan aplikasi
+      ),
       routes: {
-        '/Login': (context) => const LoginAppMain(), // rute awal main.dart (LoginApp)
+        '/Login': (context) => const LoginApp(), // rute awal main.dart (LoginApp)
         '/SignApp': (context) => const SignApp(), // penambahan rute ke SignApp
-        '/Home': (context) => const HomeAppMain(), // penambahan rute ke HomeApp
-        // '/CheckoutApp': (context) => const CheckoutApp(),
+        '/HomeApp': (context) => const HomeApp(), // penambahan rute ke HomeApp
       },
-      home: const PaymentAppMain(), // set LoginApp sebagai home
     );
   }
 }
 
-class LoginApp extends StatefulWidget { // widget LoginApp
-  const LoginApp({super.key}); // konstruktor LoginApp
+class LoginAppTest extends StatefulWidget {
+  // widget LoginAppTest
+  const LoginAppTest({super.key});
 
   @override
-  _LoginState createState() => _LoginState(); // membuat state baru dari _LoginState
+  _LoginState createState() => _LoginState();
 }
 
-class _LoginState extends State<LoginApp> { // widget _LoginState
+class _LoginState extends State<LoginAppTest> {// widget _LoginState
   final TextEditingController _emailController = TextEditingController(); // controller email
   final TextEditingController _passwordController = TextEditingController(); // controller password
   String _message = ''; // variabel _message (adalah variabel string yang digunakan untuk menyimpan dan menampilkan pesan kepada pengguna berdasarkan hasil dari proses login. setstate digunakan untuk memperbaharui nilai dari _message dan memicu pembaruan ui agar pesan terbaru ditampilkan kepada pengguna mirip seperti [mendapatkan pesan terbaru dari _message pesan yang kita buat dari fungsi setState.])
 
   @override
-  void dispose() { // fungsi dispose
+  void dispose() {
     _emailController.dispose(); // menangani pembuangan controller email
     _passwordController.dispose(); // menangani pembuangan controller password
     super.dispose(); // menangani pembuangan widget
@@ -60,17 +59,17 @@ class _LoginState extends State<LoginApp> { // widget _LoginState
       setState(() {
         _message = 'Periksa kembali email dan password anda!'; // menampilkan pesan kesalahan
       });
-      return; // jika email dan password kosong, kembalikan fungsi
+      return;
     }
 
-    DocumentSnapshot userDoc = await FirebaseFirestore.instance.collection('users').doc(email).get(); // mengambil data user dari firestore database
+    DocumentSnapshot userDoc = await FirebaseFirestore.instance.collection('users').doc(email).get();
 
     if (userDoc.exists) { // jika userDoc ada
       if (userDoc['password'] == password) { // jika password sesuai
         setState(() {
-          _message = 'Login berhasil';
+          _message = 'Login berhasil. Data anda tersimpan di firestore database';
         });
-        Navigator.pushNamed(context, '/Home'); // jika login sukses, pindah ke HomeApp
+        Navigator.pushNamed(context, '/HomeApp'); // jika login sukses, pindah ke HomeApp
       } else { // jika password atau email kurang benar atau kurang lengkap.
         setState(() {
           _message = 'Silahkan masukkan dengan benar'; // menampilkan pesan kesalahan
@@ -86,7 +85,6 @@ class _LoginState extends State<LoginApp> { // widget _LoginState
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
       body: SingleChildScrollView(
         child: Center(
           child: Column(
@@ -208,8 +206,7 @@ class _LoginState extends State<LoginApp> { // widget _LoginState
                         ),
                       ),
                     ),
-                    Positioned(
-                      // LETAK GAMBAR LOGONYA
+                    Positioned( // LETAK GAMBAR LOGONYA
                       left: 228.5,
                       top: 7,
                       child: Container(
@@ -244,8 +241,7 @@ class _LoginState extends State<LoginApp> { // widget _LoginState
                                       color: Color(0xFFE6E9EB), // background persegi panjang dari email
                                       shape: RoundedRectangleBorder(
                                         side: BorderSide(
-                                          width: 1,
-                                          color: Color(0xFFF1F5F8)),
+                                          width: 1, color: Color(0xFFF1F5F8)),
                                       ),
                                     ),
                                   ),
@@ -297,8 +293,7 @@ class _LoginState extends State<LoginApp> { // widget _LoginState
                                       color: Color(0xFFE6E9EB), // background persegi panjang dari password
                                       shape: RoundedRectangleBorder(
                                         side: BorderSide(
-                                          width: 1,
-                                          color: Color(0xFFF1F5F8)),
+                                          width: 1, color: Color(0xFFF1F5F8)),
                                       ),
                                     ),
                                   ),

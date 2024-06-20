@@ -7,7 +7,7 @@ class SignApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      routes: { // Rutenya
+      routes: { // Rutenya dari LoginApp (main.dart)
         '/SignApp': (context) => const SignApp(),
       },
       home: Scaffold(

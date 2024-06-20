@@ -7,12 +7,15 @@ class HomeApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      routes: {
+        '/HomeApp': (context) => const HomeApp(),
+      },
       home: Scaffold(
         backgroundColor: Colors.black,
         body: Center(
           child: SingleChildScrollView(
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
+              // mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container(
                   width: 720,
@@ -45,8 +48,7 @@ class HomeApp extends StatelessWidget {
                                       shape: RoundedRectangleBorder(
                                         side: BorderSide(
                                           width: 4,
-                                          strokeAlign:
-                                              BorderSide.strokeAlignCenter,
+                                          strokeAlign: BorderSide.strokeAlignCenter,
                                           color: Color(0xFF7B8081),
                                         ),
                                       ),
@@ -149,7 +151,7 @@ class HomeApp extends StatelessWidget {
                                 left: 81,
                                 top: 18, // AWAL 32
                                 child: SizedBox(
-                                  width: 140,
+                                  width: 450, // AWAL 140
                                   height: 30, // AWAL 19
                                   child: TextField( // TEXTFIELD SEARCH BAR
                                     decoration: InputDecoration(
@@ -258,7 +260,7 @@ class HomeApp extends StatelessWidget {
                         left: 172,
                         top: 1910,
                         child: Container(
-                          child: const Row(
+                          child: const Row( // teks home, wishlist, cart menjadi horizontal
                             // mainAxisSize: MainAxisSize.min,
                             // mainAxisAlignment: MainAxisAlignment.start,
                             // crossAxisAlignment: CrossAxisAlignment.start,
@@ -462,26 +464,22 @@ class HomeApp extends StatelessWidget {
                                   ),
                                 ),
                               ),
-                              const SizedBox(width: 108), // LETAK GAMBAR HEART 2
-                              Container(
-                                width: 50,
-                                height: 50,
-                                decoration: const BoxDecoration(
-                                  image: DecorationImage(
-                                    image: NetworkImage("images/heart(2).png"),
-                                    fit: BoxFit.fill,
-                                  ),
+                              const SizedBox(width:108), // LETAK GAMBAR HEART 2 (wishlist)
+                              const Opacity(
+                                opacity: 1, // Mengatur opacity menjadi 100% (normal)
+                                child: Icon(
+                                  Icons.favorite_border, // Ikon heart outline (ikon bukan warna fill)
+                                  size: 50, // Ukuran ikon
+                                  color: Colors.black, // Warna outline ikon
                                 ),
                               ),
                               const SizedBox(width: 108), // LETAK GAMBAR SHOPPING CART
-                              Container(
-                                width: 50,
-                                height: 50,
-                                decoration: const BoxDecoration(
-                                  image: DecorationImage(
-                                    image: NetworkImage("images/shopping-cart.png"),
-                                    fit: BoxFit.fill,
-                                  ),
+                              const Opacity(
+                                opacity: 1, // Mengatur opacity menjadi 100% (normal)
+                                child: Icon(
+                                  Icons.shopping_cart_outlined, // Ikon shopping cart
+                                  size: 50, // Ukuran ikon
+                                  color: Colors.black, // Warna ikon
                                 ),
                               ),
                             ],
@@ -576,13 +574,13 @@ class HomeApp extends StatelessWidget {
                           height: 24,
                           decoration: const BoxDecoration(
                             image: DecorationImage(
-                              image: NetworkImage("images/google-gemini-icon.png"),
+                              image: NetworkImage("images/google-gemini-icon.png"), // ai icons pada teks galaxy ai is here
                               fit: BoxFit.fill,
                             ),
                           ),
                         ),
                       ),
-                      Positioned( // LETAK GAMBAR DBE GM500
+                      Positioned( // LETAK GAMBAR DBE GM500 (headset)
                         left: 429,
                         top: 1242,
                         child: Container(
@@ -590,8 +588,7 @@ class HomeApp extends StatelessWidget {
                           height: 185,
                           decoration: const BoxDecoration(
                             image: DecorationImage(
-                              image: NetworkImage(
-                                  "images/Dbe-Gm500.png"),
+                              image: NetworkImage("images/Dbe-Gm500.png"),
                               fit: BoxFit.fill,
                             ),
                           ),
