@@ -108,7 +108,7 @@ class PaymentApp extends StatelessWidget {
                               border: InputBorder.none,
                               hintText: 'Enter Card Number',
                               hintStyle: TextStyle(
-                                color: Colors.black,
+                                color: Color(0xFF81818C),
                                 fontSize: 24,
                                 fontFamily: 'Roboto',
                                 fontWeight: FontWeight.w300,
@@ -223,38 +223,38 @@ class PaymentApp extends StatelessWidget {
                         ),
                       ),
                     ),
-                    Positioned( // ADD NEW METHODS PERSEGI
-                      left: 36,
-                      top: 1061,
-                      child: Container(
-                        width: 635,
-                        height: 104,
-                        decoration: const ShapeDecoration(
-                          color: Color(0xFFE6E9EB),
-                          shape: RoundedRectangleBorder(
-                            side: BorderSide(width: 1, color: Color(0xFFF1F5F8)),
-                          ),
-                        ),
-                      ),
-                    ),
-                    const Positioned( // LETAK TEKS ADD NEW METHODS
-                      left: 127,
-                      top: 1099,
-                      child: SizedBox(
-                        width: 280, // AWAL 248 
-                        height: 35, // AWAL 28
-                        child: Text(
-                          'Add New Methods',
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 30,
-                            fontFamily: 'Roboto',
-                            fontWeight: FontWeight.w400,
-                            height: 1,
-                          ),
-                        ),
-                      ),
-                    ),
+                    // Positioned( // ADD NEW METHODS PERSEGI
+                    //   left: 36,
+                    //   top: 1061,
+                    //   child: Container(
+                    //     width: 635,
+                    //     height: 104,
+                    //     decoration: const ShapeDecoration(
+                    //       color: Color(0xFFE6E9EB),
+                    //       shape: RoundedRectangleBorder(
+                    //         side: BorderSide(width: 1, color: Color(0xFFF1F5F8)),
+                    //       ),
+                    //     ),
+                    //   ),
+                    // ),
+                    // const Positioned( // LETAK TEKS ADD NEW METHODS
+                    //   left: 127,
+                    //   top: 1099,
+                    //   child: SizedBox(
+                    //     width: 280, // AWAL 248 
+                    //     height: 35, // AWAL 28
+                    //     child: Text(
+                    //       'Add New Methods',
+                    //       style: TextStyle(
+                    //         color: Color(0xFF81818C),
+                    //         fontSize: 30,
+                    //         fontFamily: 'Roboto',
+                    //         fontWeight: FontWeight.w400,
+                    //         height: 1,
+                    //       ),
+                    //     ),
+                    //   ),
+                    // ),
                     Positioned( // DATE PERSEGI
                       left: 36,
                       top: 891,
@@ -272,7 +272,7 @@ class PaymentApp extends StatelessWidget {
                           decoration: InputDecoration(
                             hintText: 'Enter Date',
                             hintStyle: TextStyle(
-                              color: Colors.black,
+                              color: Color(0xFF81818C),
                               fontSize: 24,
                               fontFamily: 'Roboto',
                               fontWeight: FontWeight.w300,
@@ -306,7 +306,7 @@ class PaymentApp extends StatelessWidget {
                           decoration: InputDecoration(
                             hintText: 'Enter CCV',
                             hintStyle: TextStyle(
-                              color: Colors.black,
+                              color: Color(0xFF81818C),
                               fontSize: 24,
                               fontFamily: 'Roboto',
                               fontWeight: FontWeight.w300,
@@ -617,29 +617,29 @@ class PaymentApp extends StatelessWidget {
                         ),
                       ),
                     ),
-                    Positioned( // LETAK GAMBAR PLUS ADD NEW METHODS
-                      left: 60,
-                      top: 1093,
-                      child: Container(
-                        width: 40,
-                        height: 40,
-                        decoration: const BoxDecoration(
-                          color: Colors.black,
-                          shape: BoxShape.circle,
-                        ),
-                        child: const Center(
-                          child: SizedBox(
-                            width: 35, // MENGATUR LEBAR ICON
-                            height: 35, // MENGATUR TINGGI ICON
-                            child: Icon(
-                              Icons.add,
-                              color: Colors.white,
-                              size: 35, // MENGATUR UKURAN ICON
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
+                    // Positioned( // LETAK GAMBAR PLUS ADD NEW METHODS
+                    //   left: 60,
+                    //   top: 1093,
+                    //   child: Container(
+                    //     width: 40,
+                    //     height: 40,
+                    //     decoration: const BoxDecoration(
+                    //       color: Colors.black,
+                    //       shape: BoxShape.circle,
+                    //     ),
+                    //     child: const Center(
+                    //       child: SizedBox(
+                    //         width: 35, // MENGATUR LEBAR ICON
+                    //         height: 35, // MENGATUR TINGGI ICON
+                    //         child: Icon(
+                    //           Icons.add,
+                    //           color: Colors.white,
+                    //           size: 35, // MENGATUR UKURAN ICON
+                    //         ),
+                    //       ),
+                    //     ),
+                    //   ),
+                    // ),
                   ],
                 ),
               ),

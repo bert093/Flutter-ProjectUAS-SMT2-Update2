@@ -1,18 +1,20 @@
 import 'package:flutter/material.dart';
 // import 'package:prj_uas_d1_24/backup_only/backup.dart';
 // import 'package:prj_uas_d1_24/Address/add_your_address.dart';
-import 'package:prj_uas_d1_24/main.dart';
+// import 'package:prj_uas_d1_24/main.dart';
+import 'package:prj_uas_d1_24/payment/payment.dart';
 
-class CheckoutApp extends StatelessWidget {
-  const CheckoutApp({super.key});
+class AddYourAddressMain extends StatelessWidget {
+  const AddYourAddressMain({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       routes: {
-        '/CheckoutMain': (context) => const CheckoutApp(),
-        '/Login': (context) => const LoginApp(),
+        // '/CheckoutMain': (context) => const CheckoutApp(),
+        // '/Login': (context) => const LoginApp(),
+        '/payment': (context) => const PaymentAppMain(),
       },
       home: const CheckoutAppNew(),
     );
@@ -280,7 +282,7 @@ class CheckoutAppNew extends StatelessWidget {
                             border: InputBorder.none,
                           ),
                           style: TextStyle(
-                            color: Color(0xFF81818C),
+                            color: Colors.black,
                             fontSize: 30,
                             fontFamily: 'Roboto',
                             fontWeight: FontWeight.w600,
@@ -308,7 +310,7 @@ class CheckoutAppNew extends StatelessWidget {
                             border: InputBorder.none,
                           ),
                           style: TextStyle(
-                            color: Color(0xFF81818C),
+                            color: Colors.black,
                             fontSize: 30,
                             fontFamily: 'Roboto',
                             fontWeight: FontWeight.w600,
@@ -351,7 +353,7 @@ class CheckoutAppNew extends StatelessWidget {
                             border: InputBorder.none,
                           ),
                           style: TextStyle(
-                            color: Color(0xFF81818C),
+                            color: Colors.black,
                             fontSize: 30,
                             fontFamily: 'Roboto',
                             fontWeight: FontWeight.w600,
@@ -409,7 +411,7 @@ class CheckoutAppNew extends StatelessWidget {
                             border: InputBorder.none,
                           ),
                           style: TextStyle(
-                            color: Color(0xFF81818C),
+                            color: Colors.black,
                             fontSize: 30,
                             fontFamily: 'Roboto',
                             fontWeight: FontWeight.w600,
@@ -437,7 +439,7 @@ class CheckoutAppNew extends StatelessWidget {
                             border: InputBorder.none,
                           ),
                           style: TextStyle(
-                            color: Color(0xFF81818C),
+                            color: Colors.black,
                             fontSize: 30,
                             fontFamily: 'Roboto',
                             fontWeight: FontWeight.w600,
@@ -496,7 +498,7 @@ class CheckoutAppNew extends StatelessWidget {
                             border: InputBorder.none,
                           ),
                           style: TextStyle(
-                            color: Color(0xFF81818C),
+                            color: Colors.black,
                             fontSize: 30,
                             fontFamily: 'Roboto',
                             fontWeight: FontWeight.w600,
@@ -539,7 +541,7 @@ class CheckoutAppNew extends StatelessWidget {
                             border: InputBorder.none,
                           ),
                           style: TextStyle(
-                            color: Color(0xFF81818C),
+                            color: Colors.black,
                             fontSize: 30,
                             fontFamily: 'Roboto',
                             fontWeight: FontWeight.w600,
@@ -579,7 +581,7 @@ class CheckoutAppNew extends StatelessWidget {
                                 width: 450, // AWAL 324
                                 height: 45, // AWAL 33
                                 child: InkWell(
-                                  onTap: () => Navigator.pushNamed(context, '/Login'), // PENAMBAHAN RUTE DAN INKWELL
+                                  onTap: () => Navigator.pushNamed(context, '/payment'), // PENAMBAHAN RUTE DAN INKWELL
                                   child: const Text(
                                     'Continue To Payment',
                                     style: TextStyle(
