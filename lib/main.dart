@@ -210,8 +210,7 @@ class _LoginState extends State<LoginApp> { // widget _LoginState
                         ),
                       ),
                     ),
-                    Positioned(
-                      // LETAK GAMBAR LOGONYA
+                    Positioned( // LETAK GAMBAR LOGONYA
                       left: 228.5,
                       top: 7,
                       child: Container(
