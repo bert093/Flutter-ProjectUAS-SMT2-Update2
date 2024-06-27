@@ -1,0 +1,1 @@
+For more info, please visit: iconlogovector.com
