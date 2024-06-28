@@ -5,10 +5,10 @@ class ECommerceAppFromFirebase extends StatefulWidget {
   const ECommerceAppFromFirebase({super.key});
 
   @override
-  State<ECommerceAppFromFirebase> createState() => _MyWidget();
+  State<ECommerceAppFromFirebase> createState() => EcommerceAppFromFirebaseState();
 }
 
-class _MyWidget extends State<ECommerceAppFromFirebase> {
+class EcommerceAppFromFirebaseState extends State<ECommerceAppFromFirebase> {
   // mengimpor firestore package
   final CollectionReference ecommerceApp =
       FirebaseFirestore.instance.collection("ECommerce App");
@@ -20,7 +20,7 @@ class _MyWidget extends State<ECommerceAppFromFirebase> {
         title: const Center(
             child: Text(
           'ECommerce App From Firebase',
-          style: TextStyle(color: Colors.black),
+          style: TextStyle(color: Colors.white),
         )),
       ),
       body: StreamBuilder(
@@ -28,22 +28,66 @@ class _MyWidget extends State<ECommerceAppFromFirebase> {
         builder: (context, AsyncSnapshot<QuerySnapshot> streamSnapshot) {
           if (streamSnapshot.hasData) {
             return GridView.builder(
+              itemCount: streamSnapshot.data!.docs.length,
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
+                crossAxisSpacing: 12,
+                mainAxisSpacing: 12,
+                childAspectRatio: 0.8,
               ),
               itemBuilder: (context, index) {
+                final DocumentSnapshot document = streamSnapshot.data!.docs[index];
                 return GestureDetector(
                   onTap: () {},
                   child: Material(
                     elevation: 3,
                     borderRadius: BorderRadius.circular(10),
-                    color: Colors.blue,
+                    color: Colors.white12,
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Container(
+                            height: 160,
+                            width: double.infinity,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(5),
+                              image: DecorationImage(
+                                image: NetworkImage(
+                                  document['imageurl'],
+                                ),
+                              ),
+                            ),
+                          ),
+                          SizedBox(height: 10),
+                          Text(
+                            document['name'],
+                            style: TextStyle(
+                                fontSize: 20, fontWeight: FontWeight.bold),
+                          ),
+                          SizedBox(height: 10),
+                          Row(
+                            children: [
+                              Container(
+                                padding: EdgeInsets.symmetric(
+                                  horizontal: 8,
+                                  vertical: 2,
+                                ),
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
                   ),
                 );
               },
             );
           }
-          ;
           return const Center(
             child: CircularProgressIndicator(),
           );
