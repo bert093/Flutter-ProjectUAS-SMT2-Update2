@@ -31,7 +31,7 @@ class LoginAppMain extends StatelessWidget {
         '/Home': (context) => const HomeAppMain(), // penambahan rute ke HomeApp
         // '/CheckoutApp': (context) => const CheckoutApp(),
       },
-      home: const LoginApp(), // set LoginApp sebagai home
+      home: const HomeAppMain(), // set LoginApp sebagai home
     );
   }
 }
