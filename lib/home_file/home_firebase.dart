@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:firebase_storage/firebase_storage.dart'; // Tambahkan ini
 
 class ECommerceAppFromFirebase extends StatefulWidget {
   const ECommerceAppFromFirebase({super.key});
@@ -10,8 +11,12 @@ class ECommerceAppFromFirebase extends StatefulWidget {
 
 class EcommerceAppFromFirebaseState extends State<ECommerceAppFromFirebase> {
   // mengimpor firestore package
-  final CollectionReference ecommerceApp =
-      FirebaseFirestore.instance.collection("ECommerce App");
+  final DocumentReference ecommerceAppDoc = FirebaseFirestore.instance.collection("ECommerce App").doc("oYgSqFhXs0WGjh1pUVNF");
+
+  Future<String> _getImageUrl(String imagePath) async {
+    return await FirebaseStorage.instance.ref(imagePath).getDownloadURL();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,73 +28,58 @@ class EcommerceAppFromFirebaseState extends State<ECommerceAppFromFirebase> {
           style: TextStyle(color: Colors.white),
         )),
       ),
-      body: StreamBuilder(
-        stream: ecommerceApp.snapshots(),
-        builder: (context, AsyncSnapshot<QuerySnapshot> streamSnapshot) {
-          if (streamSnapshot.hasData) {
-            return GridView.builder(
-              itemCount: streamSnapshot.data!.docs.length,
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2,
-                crossAxisSpacing: 12,
-                mainAxisSpacing: 12,
-                childAspectRatio: 0.8,
-              ),
-              itemBuilder: (context, index) {
-                final DocumentSnapshot document = streamSnapshot.data!.docs[index];
-                return GestureDetector(
-                  onTap: () {},
-                  child: Material(
-                    elevation: 3,
-                    borderRadius: BorderRadius.circular(10),
-                    color: Colors.white12,
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Container(
-                            height: 160,
-                            width: double.infinity,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(5),
-                              image: DecorationImage(
-                                image: NetworkImage(
-                                  document['imageurl'],
-                                ),
-                              ),
-                            ),
-                          ),
-                          SizedBox(height: 10),
-                          Text(
-                            document['name'],
-                            style: TextStyle(
-                                fontSize: 20, fontWeight: FontWeight.bold),
-                          ),
-                          SizedBox(height: 10),
-                          Row(
-                            children: [
-                              Container(
-                                padding: EdgeInsets.symmetric(
-                                  horizontal: 8,
-                                  vertical: 2,
-                                ),
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(10),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ],
+      body: FutureBuilder<DocumentSnapshot>(
+        future: ecommerceAppDoc.get(),
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return const Center(child: CircularProgressIndicator());
+          }
+          if (snapshot.hasError) {
+            return const Center(child: Icon(Icons.error));
+          }
+          if (!snapshot.hasData || !snapshot.data!.exists) {
+            return const Center(child: Text("Document not found"));
+          }
+
+          final document = snapshot.data!;
+          final imageUrl = document['imageurl'];
+
+          return FutureBuilder<String>(
+            future: _getImageUrl(imageUrl),
+            builder: (context, imageSnapshot) {
+              if (imageSnapshot.connectionState == ConnectionState.waiting) {
+                return const Center(child: CircularProgressIndicator());
+              }
+              if (imageSnapshot.hasError) {
+                return const Center(child: Icon(Icons.error));
+              }
+              return Center(
+                child: Column(
+                  // mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Container(
+                      height: 300,
+                      width: 300,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(5),
+                        image: DecorationImage(
+                          image: NetworkImage(imageSnapshot.data!),
+                          fit: BoxFit.contain,
+                        ),
                       ),
                     ),
-                  ),
-                );
-              },
-            );
-          }
-          return const Center(
-            child: CircularProgressIndicator(),
+                    const SizedBox(height: 0),
+                    Text(
+                      document['name'],
+                      style: const TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
+              );
+            },
           );
         },
       ),
