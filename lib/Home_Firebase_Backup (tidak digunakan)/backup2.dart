@@ -1,97 +1,97 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/material.dart';
+// import 'package:cloud_firestore/cloud_firestore.dart';
+// import 'package:flutter/material.dart';
 
-class ECommerceAppFromFirebase extends StatefulWidget {
-  const ECommerceAppFromFirebase({super.key});
+// class ECommerceAppFromFirebase extends StatefulWidget {
+//   const ECommerceAppFromFirebase({super.key});
 
-  @override
-  State<ECommerceAppFromFirebase> createState() => EcommerceAppFromFirebaseState();
-}
+//   @override
+//   State<ECommerceAppFromFirebase> createState() => EcommerceAppFromFirebaseState();
+// }
 
-class EcommerceAppFromFirebaseState extends State<ECommerceAppFromFirebase> {
-  // mengimpor firestore package
-  final CollectionReference ecommerceApp = FirebaseFirestore.instance.collection("ECommerce App");
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.blue,
-        title: const Center(
-            child: Text(
-          'ECommerce App From Firebase',
-          style: TextStyle(color: Colors.white),
-        )),
-      ),
-      body: StreamBuilder(
-        stream: ecommerceApp.snapshots(),
-        builder: (context, AsyncSnapshot<QuerySnapshot> streamSnapshot) {
-          if (streamSnapshot.hasData) {
-            return GridView.builder(
-              itemCount: streamSnapshot.data!.docs.length,
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 4,
-                crossAxisSpacing: 12,
-                mainAxisSpacing: 12,
-                childAspectRatio: 0.8,
-              ),
-              itemBuilder: (context, index) {
-                final DocumentSnapshot document = streamSnapshot.data!.docs[index];
-                return GestureDetector(
-                  onTap: () {},
-                  child: Material(
-                    elevation: 3,
-                    borderRadius: BorderRadius.circular(10),
-                    color: Colors.white12,
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Container(
-                            height: 160,
-                            width: double.infinity,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(5),
-                              image: DecorationImage(
-                                image: NetworkImage(
-                                  document['imageurl'],
-                                ),
-                              ),
-                            ),
-                          ),
-                          const SizedBox(height: 10),
-                          Text(
-                            document['name'],
-                            style: const TextStyle(
-                            fontSize: 20, fontWeight: FontWeight.bold),
-                          ),
-                          const SizedBox(height: 200),
-                          Row(
-                            children: [
-                              Container(
-                                padding: const EdgeInsets.symmetric(
-                                  horizontal: 8,
-                                  vertical: 2,
-                                ),
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(10),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                );
-              },
-            );
-          }
-          return const Center(
-            child: CircularProgressIndicator(),
-          );
-        },
-      ),
-    );
-  }
-}
+// class EcommerceAppFromFirebaseState extends State<ECommerceAppFromFirebase> {
+//   // mengimpor firestore package
+//   final CollectionReference ecommerceApp = FirebaseFirestore.instance.collection("ECommerce App");
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       appBar: AppBar(
+//         backgroundColor: Colors.blue,
+//         title: const Center(
+//             child: Text(
+//           'ECommerce App From Firebase',
+//           style: TextStyle(color: Colors.white),
+//         )),
+//       ),
+//       body: StreamBuilder(
+//         stream: ecommerceApp.snapshots(),
+//         builder: (context, AsyncSnapshot<QuerySnapshot> streamSnapshot) {
+//           if (streamSnapshot.hasData) {
+//             return GridView.builder(
+//               itemCount: streamSnapshot.data!.docs.length,
+//               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+//                 crossAxisCount: 4,
+//                 crossAxisSpacing: 12,
+//                 mainAxisSpacing: 12,
+//                 childAspectRatio: 0.8,
+//               ),
+//               itemBuilder: (context, index) {
+//                 final DocumentSnapshot document = streamSnapshot.data!.docs[index];
+//                 return GestureDetector(
+//                   onTap: () {},
+//                   child: Material(
+//                     elevation: 3,
+//                     borderRadius: BorderRadius.circular(10),
+//                     color: Colors.white12,
+//                     child: Padding(
+//                       padding: const EdgeInsets.all(8.0),
+//                       child: Column(
+//                         crossAxisAlignment: CrossAxisAlignment.start,
+//                         children: [
+//                           Container(
+//                             height: 160,
+//                             width: double.infinity,
+//                             decoration: BoxDecoration(
+//                               borderRadius: BorderRadius.circular(5),
+//                               image: DecorationImage(
+//                                 image: NetworkImage(
+//                                   document['imageurl'],
+//                                 ),
+//                               ),
+//                             ),
+//                           ),
+//                           const SizedBox(height: 10),
+//                           Text(
+//                             document['name'],
+//                             style: const TextStyle(
+//                             fontSize: 20, fontWeight: FontWeight.bold),
+//                           ),
+//                           const SizedBox(height: 200),
+//                           Row(
+//                             children: [
+//                               Container(
+//                                 padding: const EdgeInsets.symmetric(
+//                                   horizontal: 8,
+//                                   vertical: 2,
+//                                 ),
+//                                 decoration: BoxDecoration(
+//                                   borderRadius: BorderRadius.circular(10),
+//                                 ),
+//                               ),
+//                             ],
+//                           ),
+//                         ],
+//                       ),
+//                     ),
+//                   ),
+//                 );
+//               },
+//             );
+//           }
+//           return const Center(
+//             child: CircularProgressIndicator(),
+//           );
+//         },
+//       ),
+//     );
+//   }
+// }

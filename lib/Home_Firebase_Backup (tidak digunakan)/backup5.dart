@@ -1,5 +1,6 @@
 // import 'package:cloud_firestore/cloud_firestore.dart';
 // import 'package:flutter/material.dart';
+// import 'package:firebase_storage/firebase_storage.dart'; // Tambahkan ini
 
 // class ECommerceAppFromFirebase extends StatefulWidget {
 //   const ECommerceAppFromFirebase({super.key});
@@ -11,6 +12,11 @@
 // class EcommerceAppFromFirebaseState extends State<ECommerceAppFromFirebase> {
 //   // mengimpor firestore package
 //   final CollectionReference ecommerceApp = FirebaseFirestore.instance.collection("ECommerce App");
+
+//   Future<String> _getImageUrl(String imagePath) async {
+//     return await FirebaseStorage.instance.ref(imagePath).getDownloadURL();
+//   }
+
 //   @override
 //   Widget build(BuildContext context) {
 //     return Scaffold(
@@ -47,38 +53,46 @@
 //                       child: Column(
 //                         crossAxisAlignment: CrossAxisAlignment.start,
 //                         children: [
-//                           Container(
-//                             height: 160,
-//                             width: double.infinity,
-//                             decoration: BoxDecoration(
-//                               borderRadius: BorderRadius.circular(5),
-//                               image: DecorationImage(
-//                                 image: NetworkImage(
-//                                   document['imageurl'],
+//                           FutureBuilder(
+//                             future: _getImageUrl(document['description']),
+//                             builder: (context, AsyncSnapshot<String> snapshot) {
+//                               if (snapshot.connectionState == ConnectionState.waiting) {
+//                                 return const Center(child: CircularProgressIndicator());
+//                               }
+//                               if (snapshot.hasError) {
+//                                 return const Center(child: Icon(Icons.error));
+//                               }
+//                               return Container(
+//                                 height: 160,
+//                                 width: double.infinity,
+//                                 decoration: BoxDecoration(
+//                                   borderRadius: BorderRadius.circular(5),
+//                                   image: DecorationImage(
+//                                     image: NetworkImage(snapshot.data!),
+//                                     fit: BoxFit.cover,
+//                                   ),
 //                                 ),
-//                               ),
+//                               );
+//                             },
+//                           ),
+//                           const SizedBox(height: 10), // mengubah ukuran box untuk text pada "name field"
+//                           Center(
+//                             child: Text(
+//                               document['name'],
+//                               style: const TextStyle(
+//                                   fontSize: 20, fontWeight: FontWeight.bold),
 //                             ),
 //                           ),
-//                           const SizedBox(height: 170), // mengubah ukuran box untuk text pada "name field"
-//                             Center(
-//                               child: Text(
-//                                 document['name'],
-//                                 style: const TextStyle(
-//                                   fontSize: 20, 
-//                                   fontWeight: FontWeight.bold
-//                                 ),
-//                               ),
-//                             ),
-//                             const SizedBox(height: 40), // Adjusted height
-//                             Expanded( // Added Expanded widget
-//                              child: Row(
-//                                children: [
-//                                   Container(
-//                                     padding: const EdgeInsets.symmetric(
+//                           const SizedBox(height: 10), // Adjusted height
+//                           Expanded( // Added Expanded widget
+//                             child: Row(
+//                               children: [
+//                                 Container(
+//                                   padding: const EdgeInsets.symmetric(
 //                                     horizontal: 8,
 //                                     vertical: 2,
-//                                     ),
-//                                     decoration: BoxDecoration(
+//                                   ),
+//                                   decoration: BoxDecoration(
 //                                     borderRadius: BorderRadius.circular(10),
 //                                   ),
 //                                 ),
