@@ -1,7 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:prj_uas_d1_24/home_file/home_firebase.dart';
+// import 'package:prj_uas_d1_24/home_file/home.dart';
 // import 'package:prj_uas_d1_24/home_file/home_firebase.dart';
 // import 'package:prj_uas_d1_24/Address/add_your_address.dart';
 // import 'package:prj_uas_d1_24/Complete_Order/complete_order_app.dart';
@@ -32,7 +32,7 @@ class LoginAppMain extends StatelessWidget {
         '/Home': (context) => const HomeAppMain(), // penambahan rute ke HomeApp
         // '/CheckoutApp': (context) => const CheckoutApp(),
       },
-      home: const ECommerceAppFromFirebase(), // set LoginApp sebagai home
+      home: const HomeAppMain(), // set LoginApp sebagai home
     );
   }
 }
