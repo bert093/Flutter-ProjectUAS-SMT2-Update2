@@ -1,17 +1,15 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-// import 'package:prj_uas_d1_24/home_file/home.dart';
+// import 'package:prj_uas_d1_24/Home_Firebase_Backup%20(tidak%20digunakan)/backup7.dart';
 // import 'package:prj_uas_d1_24/home_file/home_firebase.dart';
-// import 'package:prj_uas_d1_24/Address/add_your_address.dart';
-// import 'package:prj_uas_d1_24/Complete_Order/complete_order_app.dart';
+// import 'package:prj_uas_d1_24/home_file/home.dart';
 // import 'package:prj_uas_d1_24/Address/add_your_address.dart';
 // import 'package:prj_uas_d1_24/Complete_Order/complete_order_app.dart';
 // import 'package:prj_uas_d1_24/payment/payment.dart';
-// import 'package:prj_uas_d1_24/Address/add_your_address.dart';
 import 'package:prj_uas_d1_24/signup_file/SignUp.dart';
 import 'package:prj_uas_d1_24/firebase_options.dart';
-import 'package:prj_uas_d1_24/home_file/Home.dart';
+import 'package:prj_uas_d1_24/home_file/home_bisa.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized(); // inisialisasi binding widget {Memastikan bahwa binding Flutter telah diinisialisasi. Ini diperlukan sebelum memanggil metode asinkron initializeApp dari Firebase.}
@@ -29,8 +27,10 @@ class LoginAppMain extends StatelessWidget {
       routes: {
         '/Login': (context) => const LoginAppMain(), // rute awal main.dart (LoginApp)
         '/SignApp': (context) => const SignApp(), // penambahan rute ke SignApp
-        '/Home': (context) => const HomeAppMain(), // penambahan rute ke HomeApp
+        // '/Home': (context) => const HomeAppMain(), // penambahan rute ke HomeApp
+        // '/EcommerceAppFromFirebase': (context) => const ECommerceAppFromFirebase(), // penambahan rute ke EcommerceAppFromFirebase
         // '/CheckoutApp': (context) => const CheckoutApp(),
+        '/Home': (context) => const HomeAppMain(),
       },
       home: const HomeAppMain(), // set LoginApp sebagai home
     );
